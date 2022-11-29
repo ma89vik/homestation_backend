@@ -53,7 +53,7 @@ router.post('/', ensureLoggedIn, function(req, res, next) {
   next();
 }, function(req, res, next) {
   if (req.body.title !== '') { return next(); }
-  return res.redirect('/' + (req.body.filter || ''));
+  return res.redirect('./' + (req.body.filter || ''));
 }, function(req, res, next) {
   db.run('INSERT INTO todos (owner_id, title, completed) VALUES (?, ?, ?)', [
     req.user.id,
@@ -61,7 +61,7 @@ router.post('/', ensureLoggedIn, function(req, res, next) {
     req.body.completed == true ? 1 : null
   ], function(err) {
     if (err) { return next(err); }
-    return res.redirect('/' + (req.body.filter || ''));
+    return res.redirect('./' + (req.body.filter || ''));
   });
 });
 
@@ -75,7 +75,7 @@ router.post('/:id(\\d+)', ensureLoggedIn, function(req, res, next) {
     req.user.id
   ], function(err) {
     if (err) { return next(err); }
-    return res.redirect('/' + (req.body.filter || ''));
+    return res.redirect('./' + (req.body.filter || ''));
   });
 }, function(req, res, next) {
   db.run('UPDATE todos SET title = ?, completed = ? WHERE id = ? AND owner_id = ?', [
@@ -85,7 +85,7 @@ router.post('/:id(\\d+)', ensureLoggedIn, function(req, res, next) {
     req.user.id
   ], function(err) {
     if (err) { return next(err); }
-    return res.redirect('/' + (req.body.filter || ''));
+    return res.redirect('./' + (req.body.filter || ''));
   });
 });
 
@@ -95,7 +95,7 @@ router.post('/:id(\\d+)/delete', ensureLoggedIn, function(req, res, next) {
     req.user.id
   ], function(err) {
     if (err) { return next(err); }
-    return res.redirect('/' + (req.body.filter || ''));
+    return res.redirect('./' + (req.body.filter || ''));
   });
 });
 
@@ -105,7 +105,7 @@ router.post('/toggle-all', ensureLoggedIn, function(req, res, next) {
     req.user.id
   ], function(err) {
     if (err) { return next(err); }
-    return res.redirect('/' + (req.body.filter || ''));
+    return res.redirect('./' + (req.body.filter || ''));
   });
 });
 
@@ -115,7 +115,7 @@ router.post('/clear-completed', ensureLoggedIn, function(req, res, next) {
     1
   ], function(err) {
     if (err) { return next(err); }
-    return res.redirect('/' + (req.body.filter || ''));
+    return res.redirect('./' + (req.body.filter || ''));
   });
 });
 
