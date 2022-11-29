@@ -26,7 +26,7 @@ db.serialize(function() {
   db.run("CREATE TABLE IF NOT EXISTS todos ( \
     id INTEGER PRIMARY KEY, \
     title TEXT NOT NULL, \
-    owner_id TEXT NOT NULL \
+    owner_id TEXT NOT NULL, \
     completed INTEGER \
   )");
 
