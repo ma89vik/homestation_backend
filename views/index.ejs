@@ -4,9 +4,9 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Express • TodoMVC</title>
-		<link rel="stylesheet" href="/homestation/css/base.css">
-		<link rel="stylesheet" href="/homestation/css/index.css">
-		<link rel="stylesheet" href="/homestation/css/app.css">
+		<link rel="stylesheet" href="./css/base.css">
+		<link rel="stylesheet" href="./css/index.css">
+		<link rel="stylesheet" href="./css/app.css">
 	</head>
 	<body>
 		<section class="todoapp">
@@ -69,13 +69,13 @@
 				<span class="todo-count"><strong><%= activeCount %></strong> <%= pluralize('item', activeCount) %> left</span>
 				<ul class="filters">
 					<li>
-						<a <%- !filter ? 'class="selected"' : '' %> href="/">All</a>
+						<a <%- !filter ? 'class="selected"' : '' %> href="./">All</a>
 					</li>
 					<li>
-						<a <%- filter == 'active' ? 'class="selected"' : '' %> href="/active">Active</a>
+						<a <%- filter == 'active' ? 'class="selected"' : '' %> href="./active">Active</a>
 					</li>
 					<li>
-						<a <%- filter == 'completed' ? 'class="selected"' : '' %> href="/completed">Completed</a>
+						<a <%- filter == 'completed' ? 'class="selected"' : '' %> href="./completed">Completed</a>
 					</li>
 				</ul>
 				<% if (completedCount > 0) { %>
