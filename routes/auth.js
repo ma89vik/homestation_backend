@@ -103,8 +103,8 @@ router.get('/login', function(req, res, next) {
  * a message informing them of what went wrong.
  */
 router.post('/login/password', passport.authenticate('local', {
-  successReturnToOrRedirect: '/',
-  failureRedirect: '/login',
+  successReturnToOrRedirect: '../',
+  failureRedirect: '../login',
   failureMessage: true
 }));
 
@@ -115,7 +115,7 @@ router.post('/login/password', passport.authenticate('local', {
 router.post('/logout', function(req, res, next) {
   req.logout(function(err) {
     if (err) { return next(err); }
-    res.redirect('/');
+    res.redirect('./');
   });
 });
 
