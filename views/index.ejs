@@ -14,7 +14,7 @@
 				<ul>
 					<li class="user"><%= user.username %></li>
 					<li>
-						<form action="/logout" method="post">
+						<form action="./logout" method="post">
 							<button class="logout" type="submit">Sign out</button>
 							<input type="hidden" name="_csrf" value="<%= csrfToken %>">
 						</form>
@@ -23,17 +23,17 @@
 			</nav>
 			<header class="header">
 				<h1>todos</h1>
-				<form action="/" method="post">
+				<form action="./" method="post">
 					<input class="new-todo" name="title" placeholder="What needs to be done?" autofocus>
 					<% if (filter) { %>
-					<input type="hidden" name="filter" value="<%= filter %>"/>
+					<input type="hidden" name="filter" value="<%= filter %>"./>
 					<% } %>
 					<input type="hidden" name="_csrf" value="<%= csrfToken %>">
 				</form>
 			</header>
 			<% if (activeCount + completedCount > 0) { %>
 			<section class="main">
-				<form action="/toggle-all" method="post">
+				<form action="./toggle-all" method="post">
 					<input id="toggle-all" class="toggle-all" type="checkbox" name="completed" <%- activeCount == 0 ? 'checked' : '' %> onchange="this.form.submit();">
 					<label for="toggle-all">Mark all as complete</label>
 					<input type="hidden" name="_csrf" value="<%= csrfToken %>">
@@ -79,7 +79,7 @@
 					</li>
 				</ul>
 				<% if (completedCount > 0) { %>
-				<form action="/clear-completed" method="post">
+				<form action="./clear-completed" method="post">
 					<button class="clear-completed">Clear completed</button>
 					<% if (filter) { %>
 					<input type="hidden" name="filter" value="<%= filter %>"/>
