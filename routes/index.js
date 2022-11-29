@@ -95,7 +95,7 @@ router.post('/:id(\\d+)/delete', ensureLoggedIn, function(req, res, next) {
     req.user.id
   ], function(err) {
     if (err) { return next(err); }
-    return res.redirect('./' + (req.body.filter || ''));
+    return res.redirect('../' + (req.body.filter || ''));
   });
 });
 
