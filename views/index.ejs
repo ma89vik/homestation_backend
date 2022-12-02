@@ -41,7 +41,7 @@
 				<ul class="todo-list">
 					<% todos.forEach(function(todo) { %>
 					<li <%- todo.completed ? 'class="completed"' : '' %>>
-						<form action="<%= todo.url %>" method="post">
+						<form action=".<%= todo.url %>" method="post">
 							<div class="view">
 								<input class="toggle" type="checkbox" name="completed" <%- todo.completed ? 'checked' : '' %> onchange="this.form.submit();">
 								<label ondblclick="this.closest('li').className = this.closest('li').className + ' editing'; this.closest('li').querySelector('input.edit').focus(); this.closest('li').querySelector('input.edit').value = ''; this.closest('li').querySelector('input.edit').value = '<%= todo.title %>';"><%= todo.title %></label>
@@ -53,7 +53,7 @@
 							<% } %>
 							<input type="hidden" name="_csrf" value="<%= csrfToken %>">
 						</form>
-						<form id="delete-<%= todo.id %>" action="<%= todo.url %>/delete" method="post">
+						<form id="delete-<%= todo.id %>" action=".<%= todo.url %>/delete" method="post">
 							<% if (filter) { %>
 							<input type="hidden" name="filter" value="<%= filter %>"/>
 							<% } %>
