@@ -10,6 +10,7 @@ module.exports = {
       production : {
          "user" : "github_deploy",
          "host" : ["fanmenrui.xyz"],
+         "key": 'deploy.key',
          "ssh_options": "StrictHostKeyChecking=no",
          "ref"  : "origin/master",
          "repo" : "https://github.com/ma89vik/homestation_backend.git",
